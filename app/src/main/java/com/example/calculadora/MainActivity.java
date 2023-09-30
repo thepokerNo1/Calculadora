@@ -1,10 +1,19 @@
 package com.example.calculadora;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
 import org.mozilla.javascript.Context;
@@ -18,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     MaterialButton buttonDivide,buttonMultiply,buttonPlus,buttonMinus,buttonEquals;
     MaterialButton button0,button1,button2,button3,button4,button5,button6,button7,button8,button9;
     MaterialButton buttonAC,buttonDot;
+    Toolbar toolbar;
 
 
     @Override
@@ -49,7 +59,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         assignId(buttonDot,R.id.button_dot);
 
 
-
+        toolbar = findViewById(R.id.toolbarA);
+        setSupportActionBar(toolbar);
 
 
     }
@@ -130,6 +141,44 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }catch (Exception e){
             return "Err";
         }
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        toolbar = findViewById(R.id.toolbarA);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.tolbar_menu,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+
+
+            String nc = "20290968";
+            String name= "Jesus Alexandro Cordova Morfin";
+            String materia = "Programación Movil";
+            String grado_Grupo = "7° A";
+            String txt = "NC: %s\nNombre: %s\nMateria: %s\ngrado_Grupo: %s\n";
+            String info = String.format(txt,nc,name,materia,grado_Grupo);
+            this.createAlertDialog("Info",info).show(); //refactorizar
+            Toast.makeText(this,"info",Toast.LENGTH_LONG).show();
+        return super.onOptionsItemSelected(item);
+    }
+
+    private AlertDialog createAlertDialog (String title, String message) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        LayoutInflater image_alert = LayoutInflater.from(MainActivity.this);
+        View imagen = image_alert.inflate(R.layout.img, null);
+
+
+        //Los mutables son aquellos que cuando accedemos son los que podemos editar su valor, los inmutables son los que no nos dejan cambiar su valor, string is inmutable
+        builder.setTitle(title)
+                .setMessage(message);
+        AlertDialog ad = builder.create();
+        ad.setView(imagen);
+
+        return ad;
     }
 
     /*hola*/
