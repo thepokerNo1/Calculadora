@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">Calculadora</string>
+    <string name="title_activity_info">Info</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="nc">Numero de Control:</string>
+    <string name="ncn">20290958</string>
+    <string name="name">Nombre:</string>
+    <string name="al">Jesus Alexandro Cordova Morfin</string>
+    <string name="grado_Grupo">Grado y grupo:</string>
+    <string name="gg">7°A</string>
+
+
 </resources>

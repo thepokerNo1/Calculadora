@@ -6,6 +6,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -155,14 +156,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
 
-            String nc = "20290968";
-            String name= "Jesus Alexandro Cordova Morfin";
-            String materia = "Programación Movil";
-            String grado_Grupo = "7° A";
-            String txt = "NC: %s\nNombre: %s\nMateria: %s\ngrado_Grupo: %s\n";
-            String info = String.format(txt,nc,name,materia,grado_Grupo);
-            this.createAlertDialog("Info",info).show(); //refactorizar
-            Toast.makeText(this,"info",Toast.LENGTH_LONG).show();
+        Intent i = new Intent(this,Info.class);
+        startActivity(i);
         return super.onOptionsItemSelected(item);
     }
 
